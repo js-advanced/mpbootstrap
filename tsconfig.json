@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "dom",
+            "es7"
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+              "*",
+              "src/*",
+              "lib/*",
+              "dist/*"
+            ]
+          },
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]       
+}
