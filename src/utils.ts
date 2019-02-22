@@ -1,5 +1,5 @@
 
-// import { getCurrentState } from './workspace/actions';
+import { getCurrentState } from './workspace/actions';
 
 // export const PushToHistory = (flowname: string) => {
 //     window.history.pushState(
@@ -10,7 +10,7 @@
 // };
 
 export async function loadApp(bundleName, errorfn) {
-    console.log(`./${bundleName}.js`);
+    // console.log(`./${bundleName}.js`);
     return await System.import(`./${bundleName}.js`)
         .then(result => {
             return result.default;
@@ -23,12 +23,12 @@ export async function loadApp(bundleName, errorfn) {
 }
 
 
-// export const getWorkSpace = () => (dispatch, getState) => {
-//     fetch('/loader/getCurrentState', { credentials: 'same-origin' })
-//         .then(function (response: any) {
-//             return response.json();
-//         })
-//         .then((data) => {
-//             dispatch(getCurrentState(data));
-//         });
-// };
+export const getWorkSpace = () => (dispatch, getState) => {
+    fetch('/getCurrentState', { credentials: 'same-origin' })
+        .then(function (response: any) {
+            return response.json();
+        })
+        .then((data) => {
+            dispatch(getCurrentState(data));
+        });
+};

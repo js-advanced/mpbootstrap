@@ -1,0 +1,25 @@
+{
+    "flow": {
+        "radioFlow": {
+            "init": "radioForm1",
+            "state": {
+                "radioForm1": {
+                    "events": {
+                        "next": {
+                            "newstate": "radioForm2",
+                            "title": "Радио1"
+                        }
+                    }
+                },
+                "radioForm2": {
+                    "events": {
+                        "back": {
+                            "newstate": "radioForm1",
+                            "title": "Радио2"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

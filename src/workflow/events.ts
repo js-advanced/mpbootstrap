@@ -15,7 +15,7 @@ const initFlow = (options: WorkflowOptions, data?: Object) => (
   if (flowName === options.flowName && eventName) {
     dispatch(executeCommand(Command.EVENT, { name: eventName }, {}));
   } else {
-    PushToHistory(getState().workflow.flowName);
+   // PushToHistory(getState().workflow.flowName);
     dispatch(executeCommand(Command.START, { name: options.flowName }, data));
   }
 };

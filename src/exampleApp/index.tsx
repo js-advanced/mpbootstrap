@@ -1,18 +1,46 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-class Main extends React.PureComponent <any, any> {
+import {Form1} from './form1';
+import {Form2} from './form2';
 
-    render () {
-        return (
-            <React.Suspense fallback={<div>Loading</div>}>
-                <h1>Другая страница</h1>
-                <div>Загрузилось другое приложение</div>
-                <button onClick={() => this.props.openApp('defaultapp')}>вернуться на главную</button>
+const processes = {
+  radioFlow: {
+    radioForm1: Form1,
+    radioForm2: Form2
+  }
+};
 
-            </React.Suspense>
-        )
+
+class Main extends React.PureComponent<any, any> {
+
+  componentDidMount() {
+    this.props.initFlow({
+      flowName: 'radioFlow',
+      url: 'radio-bh'
+    });
+
+  }
+
+  render() {
+    console.log(this.props);
+    let { flowName, stateName, isLoading, status } = this.props;
+
+    let Component;
+    if (flowName && stateName) {
+      Component = processes[flowName][stateName];
     }
+
+    return (
+      <React.Suspense fallback={<div>Loading</div>}>
+        <h1>Другая страница</h1>
+        <div>Загрузилось другое приложение</div>
+        <button onClick={() => this.props.openApp('defaultapp')}>вернуться на главную</button>
+     {Component && <Component {...this.props}/>} 
+
+      </React.Suspense>
+    )
+  }
 }
 
 const mapStateToProps = (state) => ({})
@@ -21,7 +49,7 @@ const mapDispatchToProps = (dispatch) => ({})
 
 const connectedApp = connect(mapStateToProps, mapDispatchToProps)(Main)
 const reducers = 'reducer'
-connectedApp[reducers] = (state = {a: 1}, action) => state
+connectedApp[reducers] = (state = { a: 1 }, action) => state
 
 
 export default connectedApp
