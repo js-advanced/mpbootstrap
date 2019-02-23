@@ -35,7 +35,10 @@ class Main extends React.PureComponent<any, any> {
       <React.Suspense fallback={<div>Loading</div>}>
         <h1>Другая страница</h1>
         <div>Загрузилось другое приложение</div>
-        <button onClick={() => this.props.openApp('defaultapp')}>вернуться на главную</button>
+        <button onClick={() => {
+              this.props.exitApp();
+              this.props.openApp('defaultapp');
+        }}>вернуться на главную</button>
      {Component && <Component {...this.props}/>} 
 
       </React.Suspense>

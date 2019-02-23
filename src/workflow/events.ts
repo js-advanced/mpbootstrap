@@ -32,4 +32,10 @@ const rollbackState = (stateId: string) => (
   dispatch(executeCommand(Command.ABORT, { name: stateId }));
 };
 
-export {initFlow, sendStateEvent, WorkflowOptions, rollbackState};
+const exitState = () => (
+  dispatch: any
+) => {
+  dispatch(executeCommand(Command.EXIT, { }));
+};
+
+export {initFlow, sendStateEvent, WorkflowOptions, rollbackState, exitState};

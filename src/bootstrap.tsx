@@ -5,7 +5,7 @@ import { loadApp, getWorkSpace } from './utils';
 import { openApp, errorOpenApp } from './workspace/actions';
 import { listen } from 'fbjs/lib/EventListener';
 
-import { initFlow, sendStateEvent } from './workflow/events'
+import { initFlow, sendStateEvent, rollbackState, exitState } from './workflow/events'
 
 class Bootstrap extends React.PureComponent<any, any> {
     App: any;
@@ -97,6 +97,8 @@ const mapDispatchToProps = (dispatch) => ({
     initFlow: (param: any, data?: Object) => dispatch(initFlow(param, data)),
     sendStateEvent: (name: string, data?: Object) => dispatch(sendStateEvent(name, data)),
     errorOpenApp: (bundleName: string) => dispatch(errorOpenApp(bundleName)),
+    rollback: (stateId: string) => dispatch(rollbackState(stateId)),
+    exitApp: () => dispatch(exitState())
     // getWorkSpace: () => dispatch(getWorkSpace()),
 });
 

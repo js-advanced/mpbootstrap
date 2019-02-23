@@ -2,6 +2,7 @@
     "flow": {
         "radioFlow": {
             "init": "radioForm1",
+            "title": "Радио1",
             "state": {
                 "radioForm1": {
                     "events": {
