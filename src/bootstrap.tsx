@@ -55,13 +55,14 @@ class Bootstrap extends React.PureComponent<any, any> {
            
         }
       
-        if (bundleName !== currentBundle
-        ) {
+        if (bundleName !== currentBundle) {
+            console.log(333);
             this.downloader(bundleName);
+            return (<div >Идет загрузка...</div>);
         }
         if (firstRender && state && this.state.appLoaded) {
             firstRender = false;
-
+            console.log(222);
             return !App ? <div >Идет загрузка...</div> :
                 (<ReactReduxContext.Consumer>
                     {({ store }) => {
@@ -72,7 +73,7 @@ class Bootstrap extends React.PureComponent<any, any> {
 
                 </ReactReduxContext.Consumer>);
         }
-
+        console.log(111);
         return !App ? <div >Идет загрузка...</div> : <App {...this.props} />;
 
     }

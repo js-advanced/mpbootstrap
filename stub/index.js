@@ -17,21 +17,15 @@ app.use(session({
 }));
 const loadJson = (filepath, encoding = 'utf8') => JSON.parse(fs.readFileSync(path.resolve(__dirname, `${filepath}.json`), { encoding }))
 
+const elevators = require('./elevator-bh-route');
 
-app.get("/api/setUsername", (req, res) => {
-  req.session.message = 'Hello World';
+app.use(elevators);
 
-  return res.send({ username: 123456, userDefaultTown: 898 })
+app.get('/getClient', (req, res) => {
+  res.send(
+      { "fname": "Andrey", "lname": "Vlasov", "messages": "5", "purchases": "3", "userphotourl": "/photo_123.png" }
+  );
 });
-
-app.get("/api/getUsername", (req, res) => {
-  console.log('req.session.message', req.session.message);
-  const a = req.session.message;
-  return res.send({ username: a, userDefaultTown: 898 })
-
-}
-
-);
 
 app.get("/getCurrentState", (req, res) =>
   res.send({
@@ -120,7 +114,7 @@ app.post("/radio-bh", (req, res) => {
 
 
 );
-
+require('./transport-route')(app);
 app.listen(8090, () => console.log("Listening on port 8090!"));
 
 module.exports = app;

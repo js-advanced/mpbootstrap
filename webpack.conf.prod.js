@@ -18,13 +18,7 @@ module.exports = {
     fs: 'empty'
   },
   plugins: [
-    new CleanWebpackPlugin([outputDirectory]),
-    new webpack.ProvidePlugin({
-      Promise:
-        'imports-loader?this=>global!exports-loader?global.Promise!es6-promise',
-      fetch:
-        'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
-    })
+    new CleanWebpackPlugin([outputDirectory])
   ],
   //devtool: '#source-map',
   devtool: 'none',

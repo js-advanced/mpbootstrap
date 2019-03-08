@@ -13,6 +13,9 @@ function createReducer(asyncReducers: any) {
 }
 
 export async function injectAsyncReducer(store: any, name: any, asyncReducer: any) {
+  if (store.asyncReducers[name]) {
+    return;
+  }
   store.asyncReducers[name] = asyncReducer;
   await store.replaceReducer(createReducer(store.asyncReducers));
 }

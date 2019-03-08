@@ -2,7 +2,6 @@ syntax: glob
 
 /npm-debug.log*
 /node_modules/*
-/dist
 
 # Code style, coverage, etc. reports
 **/reports/*

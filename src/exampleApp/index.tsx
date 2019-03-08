@@ -15,6 +15,7 @@ const processes = {
 class Main extends React.PureComponent<any, any> {
 
   componentDidMount() {
+    console.log(888);
     this.props.initFlow({
       flowName: 'radioFlow',
       url: 'radio-bh'
@@ -30,7 +31,7 @@ class Main extends React.PureComponent<any, any> {
     if (flowName && stateName) {
       Component = processes[flowName][stateName];
     }
-
+    // return <div>1111</div>
     return (
       <React.Suspense fallback={<div>Loading</div>}>
         <h1>Другая страница</h1>

@@ -21,6 +21,62 @@
                     }
                 }
             }
+        },
+        "elevatorFlow": {
+            "init": "elevatorStart",
+            "title": "Реклама в лифтах",
+            "state": {
+                "elevatorStart": {
+                    "events": {
+                        "createOrder": {
+                            "newstate": "elevatorOrder1",
+                            "title": "Оформление заказа - Реклама в лифтах"
+                        }
+                    }
+                },
+                "elevatorOrder1": {
+                    "events": {
+                        "back": {
+                            "newstate": "elevatorStart",
+                            "title": "Реклама в лифтах"
+                        }
+                    }
+                }
+            }
+        },
+        "transportFlow": {
+            "init": "transportForm1",
+            "title": "Выбор вместимости",
+            "state": {
+                "transportForm1": {
+                    "events": {
+                        "next": {
+                            "newstate": "transportForm2",
+                            "title": "Выбор маршрута"
+                        }
+                    }
+                },
+                "transportForm2": {
+                    "events": {
+                        "back": {
+                            "newstate": "transportForm1",
+                            "title": "Выбор вместимости"
+                        },
+                        "next": {
+                            "newstate": "transportForm3",
+                            "title": "Выбор нанесения"
+                        }
+                    }
+                },
+                "transportForm3": {
+                    "events": {
+                        "back": {
+                            "newstate": "transportForm2",
+                            "title": "Выбор маршрута"
+                        }
+                    }
+                }
+            }
         }
     }
 }
