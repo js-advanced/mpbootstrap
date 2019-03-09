@@ -13,13 +13,17 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, outputDirectory),
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: `(typeof self !== 'undefined' ? self : this)`
   },
   node: {
     fs: 'empty'
   },
   plugins: [
-    new CleanWebpackPlugin([outputDirectory])
+    new CleanWebpackPlugin([outputDirectory]),
+    new webpack.DefinePlugin({
+      'typeof window': JSON.stringify('object')
+  }),
   ],
   //devtool: '#source-map',
   devtool: 'none',
