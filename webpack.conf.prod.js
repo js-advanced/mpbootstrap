@@ -7,7 +7,8 @@ const outputDirectory = 'dist';
 
 module.exports = {
   entry: {
-    bootstrap: './src/main.tsx'
+    bootstrap: './src/main.tsx',
+    radioapp: ['./src/exampleApp/index.tsx']
   },
   output: {
     filename: '[name].js',
