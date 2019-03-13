@@ -32,7 +32,7 @@
     "md-transport-advertisement": "^0.2.2",
     "mediapult-elevators": "latest",
     "mediapult-landing": "0.0.8",
-    "transportapp": "latest",
+    "transportapp": "0.0.4",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.0",
