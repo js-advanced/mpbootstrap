@@ -14,7 +14,7 @@ class Main extends React.PureComponent<any, any> {
                 <Wrapper>
                     <button onClick={() => this.props.openApp('elevators/elevators')}>Команда 1</button>
                     <button onClick={() => this.props.openApp('transport/transportadvapp')}>Команда 2</button>
-                    <button onClick={() => this.props.openApp('team3')}>Команда 3?</button>
+                    <button onClick={() => this.props.openApp('team3/transportapp')}>Команда 3?</button>
                     <a href="#" onClick={(event) => {
                         event.preventDefault();
                         this.props.openApp('elevators/elevators');

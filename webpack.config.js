@@ -35,10 +35,11 @@ module.exports = {
       { from: 'node_modules/redux/dist', to: 'extlib/redux' },
       { from: 'node_modules/react-redux/dist', to: 'extlib/react-redux' },
       { from: 'node_modules/styled-components/dist', to: 'extlib/styled-components' }
-      //,
-      // { from: 'node_modules/md-transport-advertisement/dist', to: 'transport'},
-      // { from: 'node_modules/mediapult-elevators/dist', to: 'elevators' },
-      // { from: 'node_modules/mediapult-landing/dist', to: 'main-landing' }
+      ,
+      { from: 'node_modules/md-transport-advertisement/dist', to: 'transport'},
+      { from: 'node_modules/mediapult-elevators/dist', to: 'elevators' },
+      { from: 'node_modules/transportapp/dist', to: 'team3' },
+      { from: 'node_modules/mediapult-landing/dist', to: 'main-landing' }
     ])
   ],
   //devtool: '#source-map',
